@@ -1,0 +1,8 @@
+{
+    "ACFD065E1A514932AC01000005002969": {"title": "Semaforo", "id": "ACFD065E1A514932AC01000005002969", "description": "Semaforo con ausilio sonoro incrocio sulla statale", "tipologia": "ostacolo"},
+    "1B73AE0778D94F0BACD4AD6B7F946D00": {"title":"Attraversamento pedonale", "id": "1B73AE0778D94F0BACD4AD6B7F946D00", "description": "Strisce pedonali con pavimento tattile", "tipologia": "..."},
+    "ECA27BA5E228453294BFD8486D3FE62E": {"title": "Farmacia", "id": "ECA27BA5E228453294BFD8486D3FE62E", "description": "Farmacia via Verdi", "tipologia": "edificio"},
+    "0B97194000AFF0BE05C3": {"title": "Municipio", "id": "0B97194000AFF0BE05C3", "description": "...", "tipologia": "edificio"},
+    "id5": {"title":"Posta", "id": "id5", "description": "...", "tipologia": "..."},
+    "id6": {"title": "Gelateria", "id": "id6", "description": "...", "tipologia": "..."}
+}

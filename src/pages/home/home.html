@@ -1,0 +1,36 @@
+<ion-header >
+  <ion-navbar >
+    <ion-title class="title">Home</ion-title>
+ 
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+ <h2>{{title}}</h2>
+
+
+  <ion-list *ngIf="pois != null && pois.length > 0 ; else templateLista">
+      
+      <ion-item *ngFor="let poi of pois">
+        
+        <button ion-button (click)="pushPage(poi.id)" large  class="button1" >{{poi.title}} <br>
+        Distanza: {{poi.distance}}</button>
+      </ion-item>
+    </ion-list>
+
+
+<ng-template #templateLista > 
+  <p class="text"> Nessun sensore rilevato in questo momento.<br>
+   Lista punti di interesse vuota.</p>
+</ng-template>
+
+
+</ion-content>
+
+<ion-footer padding>
+  <button ion-button   (click)="viewInfo()" class='button large_button'  item-left > INFORMAZIONI</button>
+  <button ion-button  (click)="viewImpostazioni()" class='button large_button' item-right > IMPOSTAZIONI</button> 
+</ion-footer>
+
+
+
