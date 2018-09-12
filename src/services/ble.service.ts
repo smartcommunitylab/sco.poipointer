@@ -66,7 +66,7 @@ export class SensorService {
         if (this.platform.is('ios')) {
           if (device.advertising && device.advertising.kCBAdvDataServiceData) {
             const mfgData = new Uint8Array(device.advertising.kCBAdvDataServiceData['FEAA']);
-            uuid = arrayAsHeyString(mfgData);
+            uuid = arrayAsHeyString(mfgData).substring(4,36);
           }
         }
         else if (this.platform.is('android')) {
@@ -78,7 +78,6 @@ export class SensorService {
               uuid = arrayAsHeyString(uuidBytes);
           }
         }
-        
         const poi = this.dataServices.getPOI(uuid);
         if(poi==null) {
             return;
@@ -88,12 +87,12 @@ export class SensorService {
         const distance= this.convert(dis);
         poi.updated = new Date().getTime();
 
-        console.log(uuid + ":" + device.rssi + ":"+ poi.distance);
+        console.log(uuid + ":" + device.rssi + ":"+ dis);
 
 
         if (!this.devices[poi.uuid]){
             this.devices[poi.uuid] = poi;
-           
+            poi.distance = distance;
             this.deviceGenerator.next(poi);
             this.notifyDevice(poi);
         } else {
@@ -108,12 +107,12 @@ export class SensorService {
 
     private calculateDistance(rssi) {
         var txPower = -60 //hard coded power value. Usually ranges between -59 to -65
-        return Math.floor(Math.pow(10, (txPower - rssi) / (10 * 2))); 
+        return Math.floor(Math.pow(10, (txPower - rssi) / (10 * 2))) || 0; 
    
     }
 
     convert(dis){
-        if(dis==0 && dis<=5){
+        if(dis<=5){
             var distance = dis.toString();
             distance="Sei molto vicino";
         }
