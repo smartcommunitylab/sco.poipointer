@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { DataService } from '../services/data';
 import { DettagliPage } from '../pages/dettagli/dettagli' ;
 import { ImpostazioniPage } from '../pages/impostazioni/impostazioni' ;
+import { FunzionalitaPage } from '../pages/funzionalita/funzionalita' ;
+import { UtilizzoPage } from '../pages/utilizzo/utilizzo' ;
 import { HttpClientModule } from '@angular/common/http';
 import { SensorService} from '../services/ble.service';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -19,7 +21,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
    InfoPage,
    HomePage,
    DettagliPage,
-   ImpostazioniPage
+   ImpostazioniPage,
+   FunzionalitaPage,
+   UtilizzoPage
  ],
  imports: [
    BrowserModule,
@@ -32,7 +36,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
    InfoPage,
    HomePage,
    DettagliPage,
-   ImpostazioniPage
+   ImpostazioniPage,
+   FunzionalitaPage,
+   UtilizzoPage
  ],
  providers: [
    {provide: ErrorHandler, useClass: IonicErrorHandler },

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 //import { TextToSpeech } from '@ionic-native/text-to-speech';
+import { FunzionalitaPage } from './../funzionalita/funzionalita';
+import { UtilizzoPage } from './../utilizzo/utilizzo';
 
 @Component({
   selector: 'page-info',
@@ -25,7 +27,22 @@ export class InfoPage {
       //console.log("Successfully spoke");
   
   
+viewFunzionalita() {
+    this.navCtrl.push(FunzionalitaPage, {
+
+    }
+  )
   }
+
+  viewUtilizzo() {
+    this.navCtrl.push(UtilizzoPage, {
+
+    }
+  )
+  }
+
+  }
+  
 
   
 
