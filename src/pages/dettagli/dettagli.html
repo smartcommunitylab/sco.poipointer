@@ -1,25 +1,27 @@
-
 <ion-header>
-    <ion-navbar class="navbar">
-      <ion-title>Scheda dettagli</ion-title>
+    <ion-navbar>
+      <ion-title class="title">
+        Scheda dettagli
+      </ion-title>
     </ion-navbar>
   </ion-header>
-
-  <ion-content padding  *ngIf="poi">  
-    <h2>Dettagli punto di interesse</h2>
-    <ion-list>
-    <ion-item>
-    <ion-icon name="arrow-dropright-circle" item-left></ion-icon><b>NOME:</b> {{poi.title}} </ion-item>  
-    <ion-item>
-    <ion-icon name="walk" item-left></ion-icon><b>POSIZIONE:</b> {{poi.distance}}
-    </ion-item>
-    <ion-item>
-        <ion-icon name="pricetag" item-left></ion-icon><b>TIPOLOGIA:</b> {{poi.tipologia}}
-    </ion-item>
-    <ion-item>
-     <ion-icon name="paper" item-left></ion-icon><b>DESCRIZIONE:</b> {{poi.description}} 
-    </ion-item>
-    
-    </ion-list>
-   
+ 
+  <ion-content padding>
+    <ng-container *ngIf="poi">
+      <h2> Dettagli punto di interesse</h2>
+      <ion-list>
+          <ion-item>
+            <ion-icon name="arrow-dropright-circle" item-left></ion-icon><b>NOME:</b> {{poi.title}}
+          </ion-item>
+          <ion-item>
+            <ion-icon name="walk" item-left></ion-icon><b>POSIZIONE:</b> {{poi.distance}}
+          </ion-item>
+          <ion-item>
+            <ion-icon name="pricetag" item-left></ion-icon><b>TIPOLOGIA:</b> {{poi.tipologia}}
+          </ion-item>
+          <ion-item>
+            <ion-icon name="paper" item-left></ion-icon><b>DESCRIZIONE:</b> {{poi.description}} 
+          </ion-item>
+      </ion-list>
+    </ng-container>
   </ion-content>

@@ -12,6 +12,8 @@ import { DataService } from '../../services/data';
 })
 export class DettagliPage{
  poi: any;
+ 
+
 constructor( private navParams: NavParams, private dataService: DataService){
 
 
