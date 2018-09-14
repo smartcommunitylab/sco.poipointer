@@ -33,11 +33,27 @@ export class HomePage {
       console.log('SUB: '+device.uuid);
       this.ngZone.run(() => {
         const old = this.pois.find(d => d.uuid == device.uuid);
-        if (old == null) this.pois.push(device);
-        else old.distance = device.distance;  
+        if (old == null) {
+          console.log("is new")
+
+          this.pois.push(device)
+        }
+        else {
+          old.distance = device.distance;
+          console.log("is old")
+        }
+  
+      });
+    });
+
+    sensorServices.removerDevices().subscribe(device => {
+      console.log('SUB: '+device.uuid);
+      this.ngZone.run(() => {
+        this.pois = this.pois.filter(obj => obj.uuid !== device.uuid);  
       });
     });
   }
+
   ionViewDidEnter() {
     //this.sayText();
     

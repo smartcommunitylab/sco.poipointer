@@ -50,11 +50,15 @@ export class SensorService {
     private bgMode = false;
     private devices: any = {};
     private deviceGenerator: Subject<any>;
+    private deviceRemover: Subject<any>;
     private navCtrl:NavController;
 
 
     public subscribeDevices(): Observable<any> {
         return this.deviceGenerator;
+    }
+    public removerDevices(): Observable<any> {
+        return this.deviceRemover;
     }
     public getDevices(): any[] {
         return Object.keys(this.devices).map(key => this.devices[key]);
@@ -165,18 +169,20 @@ export class SensorService {
         const now = new Date().getTime();
         for (let key in this.devices) {
             const device = this.devices[key];
-            if (now - device.updated > 10000) {
-
-            }
+            if (now - device.updated > 5000) {
+                this.deviceRemover.next(this.devices[key]);
+                delete this.devices[key];
         }
+    }
       }, 5000);
     }
-
+    
 
 
 
     constructor(public platform: Platform, public ble: BLE,private app:App, private localNotifications: LocalNotifications, private dataServices: DataService) {
         this.deviceGenerator = new Subject();
+        this.deviceRemover = new Subject();
         this.navCtrl = app.getActiveNav();
        this.platform.ready().then(() => {
            
@@ -203,9 +209,10 @@ export class SensorService {
  
  
  }
+}
  
  
 
-}
+
 
 

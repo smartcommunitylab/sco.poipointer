@@ -1,12 +1,12 @@
 <ion-header >
   <ion-navbar >
-    <ion-title class="title">Home</ion-title>
+    <ion-title class="title">{{title}}</ion-title>
  
   </ion-navbar>
 </ion-header>
 
 <ion-content padding >
- <h2>{{title}}</h2>
+ 
 
 
   <ion-list *ngIf="pois != null && pois.length > 0 ; else templateLista">
