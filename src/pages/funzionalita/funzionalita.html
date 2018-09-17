@@ -1,23 +1,19 @@
 <ion-header>
     <ion-navbar>
       <ion-title class="title">
-        Funzionalità dell'applicazione
+        {{titolo}}
       </ion-title>
     </ion-navbar>
   </ion-header>
   
   <ion-content padding>
-  <h2> Funzionalità dell'applicazione </h2>
-  <br>
   <p class="text">
-   <b>NOTIFICA PUNTO DI INTERESSE:</b> Le notifiche ti avvisano ogni volta che il dispositivo riceve dei segnali da un sensore posto in corrispondenza di un punto di interesse. Aprendo la notifica accedi direttamente alla pagina dettagli di quel punto, che ti indicherà tutte le informazioni necessarie.
+   <b>{{titolo1}} </b> {{testo1}}
   </p> <br>
   <p class="text">
-    <b>LISTA PUNTI DI INTERESSE: </b> Aprendo l'applicazione si accede alla lista con elencati i punti di interesse attivi rilevati. Facendo doppio click sul nome del punto di interesse si apre la lista dettagli.
+    <b>{{titolo2}} </b> {{testo2}}
   </p> <br>
   <p class="text">
-    <b>DISTANZA DA UN PUNTO DI INTERESSE:</b> La distanza da un punto di interesse viene segnalata con tre espressioni.
-    "Sei molto vicino" significa che si è a meno di 5 metri dal sensore, "sei vicino" ci si trova tra i 5 e i 15 metri, "sei lontano" si è a più di 15 metri. 
-    
+    <b>{{titolo3}}</b> {{testo3}}
   </p>
   </ion-content>
