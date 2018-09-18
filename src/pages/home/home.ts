@@ -8,7 +8,7 @@ import { BLE } from '@ionic-native/ble';
 import { InfoPage } from './../info/info';
 import { ImpostazioniPage } from './../impostazioni/impostazioni';
 import { SensorService } from '../../services/ble.service';
-
+import {Platform} from 'ionic-angular';
 
 
 @Component({
@@ -25,10 +25,22 @@ export class HomePage {
   text: string;
 
   statusMessage: string;
+  bleEnabled: boolean;
 
-
-  constructor( public navCtrl: NavController, public dataService: DataService, private sensorServices: SensorService, private ngZone: NgZone) {
+  constructor( public navCtrl: NavController, private ble: BLE, public dataService: DataService,private platform: Platform, private sensorServices: SensorService, private ngZone: NgZone) {
     this.pois = sensorServices.getDevices();
+
+    this.platform.ready().then((readySource) => {
+      ble.isEnabled().then(()=>{
+        console.log('enabled');
+        this.bleEnabled=true;
+      },()=>{
+        console.log('disabled');
+        this.bleEnabled=false;
+      })
+      return this.bleEnabled;
+    })
+    
     sensorServices.subscribeDevices().subscribe(device => {
       console.log('SUB: '+device.uuid);
       this.ngZone.run(() => {
@@ -44,7 +56,8 @@ export class HomePage {
         }
   
       });
-    });
+    })
+    ;
 
     sensorServices.removerDevices().subscribe(device => {
       console.log('SUB: '+device.uuid);
@@ -53,12 +66,12 @@ export class HomePage {
       });
     });
   }
-/*
+
   ionViewDidEnter() {
     //this.sayText();
-    
   }
 
+/*
   sayText(){
     this.tts.speak({
       text: "Sei nell'applicazione a occhi chiusi",
