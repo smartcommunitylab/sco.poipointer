@@ -134,6 +134,7 @@ export class SensorService {
 
 
     private notifyDevice(poi) {
+        if(poi.dis<=25){
         if (this.bgMode) {
             // if we're in the background, add a local notification
             var localNotification = {
@@ -144,7 +145,7 @@ export class SensorService {
             };
             this.localNotifications.schedule(localNotification);
         }
-       
+       }
 
         }    
 

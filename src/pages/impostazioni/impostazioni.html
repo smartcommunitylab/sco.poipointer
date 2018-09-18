@@ -15,9 +15,11 @@
  
 
  <p class="text">Lettura automatica dei contenuti</p>
- <ion-toggle [(ngModel)]="toggle" (ionChange)="change()"></ion-toggle>
+ <!-- <ion-toggle [(ngModel)]="toggle" (ionChange)="change()" ></ion-toggle> -->
+ <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="change();"></ion-toggle>
 
-<h3 *ngIf="toggle">Attiva</h3>
+
+<h3 *ngIf="toggleStatus">Attiva</h3>
  
 
 

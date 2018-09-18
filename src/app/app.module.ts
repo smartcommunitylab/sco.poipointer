@@ -14,6 +14,7 @@ import { UtilizzoPage } from '../pages/utilizzo/utilizzo' ;
 import { HttpClientModule } from '@angular/common/http';
 import { SensorService} from '../services/ble.service';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
  declarations: [
@@ -27,7 +28,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
  ],
  imports: [
    BrowserModule,
-   IonicModule.forRoot(MyApp), HttpClientModule
+   IonicModule.forRoot(MyApp), HttpClientModule,
+   IonicStorageModule.forRoot()
  ],
  bootstrap: [IonicApp],
  
@@ -41,7 +43,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
    UtilizzoPage
  ],
  providers: [
-   {provide: ErrorHandler, useClass: IonicErrorHandler },
+   {provide: ErrorHandler, useClass: IonicErrorHandler},
    DataService, BLE, SensorService, LocalNotifications, TextToSpeech
  ]
 })
