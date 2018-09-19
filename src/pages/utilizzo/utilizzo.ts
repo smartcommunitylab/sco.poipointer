@@ -22,8 +22,7 @@ export class UtilizzoPage {
   }
 
   sayText(){
-    if(this.settingService.getSetting(toggleStatus)==true){
-
+    if(this.settingService.getSetting()==true){
     this.tts.speak({
       text: this.titolo + this.titolo1 + this.testo1 + this.titolo2 + this.testo2,
       locale: 'it-IT'

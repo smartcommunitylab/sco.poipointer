@@ -26,10 +26,9 @@ export class ImpostazioniPage {
     console.log(`changing toggleStatus to '${this.toggleStatus}'`);
     this.storage.set('toggleStatus', this.toggleStatus);
     
-     if((this.toggleStatus==false)){
+     if((this.settingService.getSetting()==false)){
        this.tts.speak("").then((value)=>{
         //this.toggleStatus = false; 
-        this.toggleStatus = this.settingService.getSetting(value);
         });  
     }
       

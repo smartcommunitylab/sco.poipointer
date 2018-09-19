@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class SettingService {
-    toggleStatus: any;
-  
+    
+    private toggleStatus:boolean;
 
   constructor(private http: HttpClient) {
     
   }
   
-  setSetting() {
-    return this.toggleStatus
+  setSetting(toggleStatus:boolean) {
+    this.toggleStatus=toggleStatus;
   }
 
-  getSetting(value: boolean) {
+  getSetting() {
     return this.toggleStatus;
   }
 
