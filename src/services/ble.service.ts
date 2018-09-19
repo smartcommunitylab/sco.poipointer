@@ -98,7 +98,10 @@ export class SensorService {
             this.devices[poi.uuid] = poi;
             poi.distance = distance;
             this.deviceGenerator.next(poi);
-            this.notifyDevice(poi);
+            if(dis<=25){
+                this.notifyDevice(poi);
+            }
+            
         } else {
             if (this.devices[poi.uuid].distance != distance) {
                 this.devices[poi.uuid].distance = distance;
@@ -134,7 +137,6 @@ export class SensorService {
 
 
     private notifyDevice(poi) {
-        
         if (this.bgMode) {
             // if we're in the background, add a local notification
             var localNotification = {
