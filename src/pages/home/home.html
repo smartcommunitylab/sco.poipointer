@@ -19,12 +19,9 @@
     </ion-list>
 
 
-<ng-template #templateLista  *ngIf="bleEnabled==true; else templateLista2"> 
-  <p class="text"> Nessun punto di interesse rilevato in questo momento.<br></p>
-</ng-template>
-
-<ng-template #templateLista2 > 
-  <p class="text"> Buetooth disattivato. Attiva il Bluetooth e riavvia l'applicazione.<br></p>
+<ng-template #templateLista > 
+  <p class="text" *ngIf="bleEnabled==false"> Buetooth disattivato. Attiva il Bluetooth e riavvia l'applicazione.</p>
+  <p class="text" *ngIf="bleEnabled==true">Nessun punto di interesse rilevato in questo momento.</p>
 </ng-template>
 
 </ion-content>
