@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SensorService} from '../services/ble.service';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { IonicStorageModule } from '@ionic/storage';
+import { SettingService } from '../services/setting';
 
 @NgModule({
  declarations: [
@@ -44,7 +45,7 @@ import { IonicStorageModule } from '@ionic/storage';
  ],
  providers: [
    {provide: ErrorHandler, useClass: IonicErrorHandler},
-   DataService, BLE, SensorService, LocalNotifications, TextToSpeech
+   DataService, BLE, SensorService, LocalNotifications, TextToSpeech, SettingService
  ]
 })
 export class AppModule {}

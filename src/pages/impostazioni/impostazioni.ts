@@ -3,7 +3,7 @@ import { Component} from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { Storage } from '@ionic/storage';
-
+import { SettingService } from '../../services/setting';
 
 @Component({
   selector: 'page-impostazioni',
@@ -12,7 +12,7 @@ import { Storage } from '@ionic/storage';
 export class ImpostazioniPage {
   toggleStatus: any;
   
-  constructor(public navCtrl: NavController,public tts:TextToSpeech, private storage: Storage) {
+  constructor(public navCtrl: NavController,public tts:TextToSpeech, private storage: Storage,  private settingService: SettingService) {
     storage.ready().then(() => {
       storage.get('toggleStatus').then((val) => {
         console.log(`Setting status from storage to '${this.toggleStatus}'`);
@@ -29,7 +29,7 @@ export class ImpostazioniPage {
      if((this.toggleStatus==false)){
        this.tts.speak("").then((value)=>{
         //this.toggleStatus = false; 
-         
+        this.toggleStatus = this.settingService.getSetting(value);
         });  
     }
       
