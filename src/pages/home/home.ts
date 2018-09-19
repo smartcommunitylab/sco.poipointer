@@ -68,18 +68,10 @@ export class HomePage {
   }
 
   ionViewDidEnter() {
-    //this.sayText();
+    
   }
 
-/*
-  sayText(){
-    this.tts.speak({
-      text: "Sei nell'applicazione a occhi chiusi",
-      locale: 'it-IT'
-    });
-      console.log("Successfully spoke");
-    }
-  */
+
   
 
 

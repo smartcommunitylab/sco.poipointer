@@ -9,17 +9,14 @@
   <ion-content padding>
   <h2> Impostazioni applicazione </h2>
   <br>
- <!--  <p class="text">Lettura automatica dei contenuti attiva </p>
- <button ion-button large class="button_impo" (click)="stopTTS()">DISATTIVA</button> 
--->
  
 
  <p class="text">Lettura automatica dei contenuti</p>
- <!-- <ion-toggle [(ngModel)]="toggle" (ionChange)="change()" ></ion-toggle> -->
- <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="change();"></ion-toggle>
+ <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="change();" class="toggle"></ion-toggle>
 
 
-<h3 *ngIf="toggleStatus">Attiva</h3>
+<p *ngIf="toggleStatus; else templateImpo" class="text">Attivata</p>
+<ng-template #templateImpo> <p class="text">Disattivata</p></ng-template>
  
 
 

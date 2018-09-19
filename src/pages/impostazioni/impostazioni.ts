@@ -10,13 +10,14 @@ import { SettingService } from '../../services/setting';
   templateUrl: 'impostazioni.html'
 })
 export class ImpostazioniPage {
-  toggleStatus: any;
-  
+  public toggleStatus: any;
+
   constructor(public navCtrl: NavController,public tts:TextToSpeech, private storage: Storage,  private settingService: SettingService) {
     storage.ready().then(() => {
       storage.get('toggleStatus').then((val) => {
         console.log(`Setting status from storage to '${this.toggleStatus}'`);
-        this.toggleStatus = val; 
+        //this.toggleStatus = val; 
+        this.toggleStatus = settingService.getSetting();
       })
     });
   
@@ -25,36 +26,17 @@ export class ImpostazioniPage {
   change() {
     console.log(`changing toggleStatus to '${this.toggleStatus}'`);
     this.storage.set('toggleStatus', this.toggleStatus);
-    
+    this.settingService.setSetting(this.toggleStatus);
      if((this.settingService.getSetting()==false)){
        this.tts.speak("").then((value)=>{
-        //this.toggleStatus = false; 
+        
         });  
     }
       
   }
-  /* change(){
-    console.log(this.toggle);
-     this.tts.speak("").then((toggle)=>{
-      this.toggle = false; 
-      });
-
-    }  */
- 
+  
     
 
-//  ionViewDidEnter() {
-    
-    //this.sayText();
-  //}
 
-  //sayText(){
-  //  this.tts.speak({
-    //  text: "Impostazioni applicazione",
-    //  locale: 'it-IT'
-   // });
-      //console.log("Successfully spoke");
   
   }
-   
-  
