@@ -13,12 +13,19 @@
 
  <p class="text">Lettura automatica dei contenuti</p>
  
-  <p *ngIf="toggleStatus; else templateImpo" class="text"  style="display:inline;">Attivata</p>
+  <!-- <p *ngIf="toggleStatus; else templateImpo" class="text"  style="display:inline;">Attivata</p>
   <ng-template #templateImpo> <p class="text" style="display:inline;">Disattivata</p></ng-template>
   
-    <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="change()" > </ion-toggle>
+    <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="change()" > </ion-toggle> -->
   
-  
+
+      <ion-item>
+        <ion-label >
+          <h2 *ngIf="toggleStatus; else templateImpo" class="text" style="display:inline;">Attivata</h2>
+          <ng-template #templateImpo> <h2 class="text" style="display:inline;">Disattivata</h2></ng-template>
+        </ion-label>
+        <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="change()"> </ion-toggle>
+      </ion-item>
 
 
 
