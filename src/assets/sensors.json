@@ -1,8 +1,10 @@
 {
-    "ACFD065E1A514932AC01000005002969": {"title": "Semaforo", "id": "ACFD065E1A514932AC01000005002969", "description": "Semaforo con ausilio sonoro incrocio sulla statale", "tipologia": "ostacolo"},
-    "1B73AE0778D94F0BACD4AD6B7F946D00": {"title":"Attraversamento pedonale", "id": "1B73AE0778D94F0BACD4AD6B7F946D00", "description": "Strisce pedonali con pavimento tattile", "tipologia": "..."},
-    "ECA27BA5E228453294BFD8486D3FE62E": {"title": "Farmacia", "id": "ECA27BA5E228453294BFD8486D3FE62E", "description": "Farmacia via Verdi", "tipologia": "edificio"},
-    "0B97194000AFF0BE05C3": {"title": "Municipio", "id": "0B97194000AFF0BE05C3", "description": "...", "tipologia": "edificio"},
-    "id5": {"title":"Posta", "id": "id5", "description": "...", "tipologia": "..."},
-    "id6": {"title": "Gelateria", "id": "id6", "description": "...", "tipologia": "..."}
+    
+    "3FE4C91C41E94485B472DF70E19BD25A": {"title":"Municipio", "id": "3FE4C91C41E94485B472DF70E19BD25A", "description": "...", "tipologia": "edificio"},
+    "FC236A1067044ECB8827B8EF10CD7CCD": {"title":"Attraversamento pedonale", "id": "FC236A1067044ECB8827B8EF10CD7CCD", "description": "Strisce pedonali con pavimento tattile", "tipologia": "..."},
+    "AAF6D0D4C647414294F1858D3C4CE1E5": {"title": "Cassa Rurale", "id": "AAF6D0D4C647414294F1858D3C4CE1E5", "description": "Semaforo con ausilio sonoro incrocio sulla statale", "tipologia": "ostacolo"},
+    "F03444B413A74A14A8020BA89FDE02F4": {"title": "Panchina", "id": "F03444B413A74A14A8020BA89FDE02F4", "description": "Farmacia via Verdi", "tipologia": "edificio"},
+
+    "576A537206874DE58213FB6452B552A7": {"title": "Farmacia", "id": "576A537206874DE58213FB6452B552A7", "description": "...", "tipologia": "edificio"}
+
 }
