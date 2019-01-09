@@ -87,18 +87,17 @@ export class SensorService {
             return;
         }
         poi.uuid = uuid;
-        const dis = this.calculateDistance(device.rssi);
         const distance= this.convert(device.rssi);
         poi.updated = new Date().getTime();
 
-        console.log(uuid + ":" + device.rssi + ":"+ dis + ":" +distance);
+        console.log(uuid + ":" + device.rssi + ":" +distance);
 
 
         if (!this.devices[poi.uuid]){
             this.devices[poi.uuid] = poi;
             poi.distance = distance;
             this.deviceGenerator.next(poi);
-            if(dis>=-90){  //TODO: questo caso è molto difficile che si verifichi in quanto il cellulare non può apparire a 25m dal nulla, sarà prima a 60m poi 30m e poi 25m, ma a questo punto l'app è già nel 'else'
+            if(device.rssi>=-90){  //TODO: questo caso è molto difficile che si verifichi in quanto il cellulare non può apparire a 25m dal nulla, sarà prima a 60m poi 30m e poi 25m, ma a questo punto l'app è già nel 'else'
                 this.notifyDevice(poi);
             }
             
