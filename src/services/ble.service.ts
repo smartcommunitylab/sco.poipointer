@@ -88,46 +88,46 @@ export class SensorService {
         }
         poi.uuid = uuid;
         const dis = this.calculateDistance(device.rssi);
-        const distance= this.convert(dis);
+        const distance= this.convert(device.rssi);
         poi.updated = new Date().getTime();
 
-        console.log(uuid + ":" + device.rssi + ":"+ dis);
+        console.log(uuid + ":" + device.rssi + ":"+ dis + ":" +distance);
 
 
         if (!this.devices[poi.uuid]){
             this.devices[poi.uuid] = poi;
             poi.distance = distance;
             this.deviceGenerator.next(poi);
-            if(dis<=25){
+            if(dis>=-90){  //TODO: questo caso è molto difficile che si verifichi in quanto il cellulare non può apparire a 25m dal nulla, sarà prima a 60m poi 30m e poi 25m, ma a questo punto l'app è già nel 'else'
                 this.notifyDevice(poi);
             }
             
         } else {
-            if (this.devices[poi.uuid].distance != distance) {
+            if (this.devices[poi.uuid].distance != distance) { //TODO: questo controllo fa scattare le notifiche sia quando ci si avvicina, sia quando ci si allontana
                 this.devices[poi.uuid].distance = distance;
                 this.deviceGenerator.next(poi);
                 this.notifyDevice(poi);
             }
-            this.devices[poi.uuid].updated = new Date().getTime();
+            this.devices[poi.uuid].updated = new Date().getTime(); //TODO: questo magari è meglio metterlo fuori dall'if/else
         }
     }
 
     private calculateDistance(rssi) {
-        var txPower = -60 //hard coded power value. Usually ranges between -59 to -65
-        return Math.floor(Math.pow(10, (txPower - rssi) / (10 * 2))) || 0; 
+        var txPower = -50 //hard coded power value. Usually ranges between -59 to -65 //TODO: PROVARE CON -50, ERA -60
+        return Math.floor(Math.pow(10, (txPower - rssi) / (10 * 2))) ||0; //TODO: perché || 0? Non rischia di ritornare un valore logico (True/Fals) invece della distanza?
    
     }
 
     convert(dis){
-        if(dis<=5){
+        if(dis>=-65){
             var distance = dis.toString();
             distance="Sei molto vicino";
         }
-        if(dis>5 && dis<=15){
+        if(dis<-65 && dis>=-80){
             var distance = dis.toString();
             distance="Sei vicino";
         }
-        if(dis>15){
+        if(dis<-80){
             var distance = dis.toString();
             distance="Sei lontano";
         }

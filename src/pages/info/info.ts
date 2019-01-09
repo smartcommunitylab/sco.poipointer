@@ -12,7 +12,7 @@ import { Platform } from "ionic-angular";
 })
 export class InfoPage {
 
-  testo= "L’applicazione 'A Occhi Chiusi' funge da ausilio integrativo per la persona non vedente o ipovedente, in quanto permette alla persona di avere conferma di dove si trova approssimativamente nel caso in cui perda l’orientamento. Tramite dei sensori posti sul territorio, il dispositivo riceve delle notifiche che segnalano se ci si è avvicinati o allontanati dal punto di interesse."
+  testo= "L’applicazione 'A Occhi Chiusi' è un ausilio integrativo per la persona non vedente o ipovedente, in quanto permette alla persona di avere conferma di dove si trova approssimativamente nel caso in cui perda l’orientamento. Tramite dei sensori posti sul territorio, il dispositivo riceve delle notifiche che segnalano se ci si è avvicinati o allontanati dal punto di interesse."
   constructor(public platform: Platform, public navCtrl: NavController, public tts:TextToSpeech, private settingService: SettingService) {
     
   }

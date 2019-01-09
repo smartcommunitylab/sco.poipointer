@@ -9,7 +9,7 @@
   <ion-content padding>
     <ng-container *ngIf="poi">
       <h2> Dettagli punto di interesse</h2>
-      <ion-list>
+      <ion-list >
           <ion-item>
             <b>NOME:</b> {{poi.title}}
           </ion-item>
@@ -20,7 +20,9 @@
             <b>TIPOLOGIA:</b> {{poi.tipologia}}
           </ion-item>
           <ion-item>
-            <b>DESCRIZIONE:</b> {{poi.description}} 
+            <ion-label class="label">
+            <b>DESCRIZIONE:</b> {{poi.description}}
+            </ion-label>
           </ion-item>
       </ion-list>
     </ng-container>
